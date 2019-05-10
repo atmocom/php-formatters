@@ -8,9 +8,9 @@
 ** NOTE! CSV field specification can be found at the end of this file
 **
 ** Requires URL parameter 'id' which is the Weather Underground station name in lower case letters, e.g. ibenalmd17
-** For CSV formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&format=c
-** For JSON formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&format=j
-** For XML formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&format=x
+** For CSV formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&fmt=c
+** For JSON formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&fmt=j
+** For XML formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&fmt=x
 **
 ** NOTE! XML formatting is an ***experimental*** PHP feature and requires PHP module xmlrpc to be enabled
 **
