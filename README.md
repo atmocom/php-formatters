@@ -12,9 +12,9 @@ Upload **wxloader.php** to the same folder where you have installed the **atmolo
 
 Latest weather data can now be accessed via the web browser by providing your Weather Underground station ID and a formatting parameter: 'c' for CSV, 'j' for JSON or 'x' for XML. For example:
 ```
-CSV: http://www.mysite.com/wxloader.php?id=iplace17&format=c
-JSON: http://www.mysite.com/wxloader.php?id=iplace17&format=j
-XML: http://www.mysite.com/wxloader.php?id=iplace17&format=x
+CSV: http://www.mysite.com/wxloader.php?id=iplace17&fmt=c
+JSON: http://www.mysite.com/wxloader.php?id=iplace17&fmt=j
+XML: http://www.mysite.com/wxloader.php?id=iplace17&fmt=x
 ```
 
 Data is refreshed every time ATMOCOM uploads new data to **atmolog.php**.
