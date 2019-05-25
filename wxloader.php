@@ -8,9 +8,9 @@
 ** NOTE! CSV field specification can be found at the end of this file
 **
 ** Requires URL parameter 'id' which is the Weather Underground station name in lower case letters, e.g. ibenalmd17
-** For CSV formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&fmt=c
-** For JSON formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&fmt=j
-** For XML formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&fmt=x
+** For CSV formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&format=c
+** For JSON formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&format=j
+** For XML formatting: http://www.mysite.com/wxloader.php?id=ibenalmd17&format=x
 **
 ** NOTE! XML formatting is an ***experimental*** PHP feature and requires PHP module xmlrpc to be enabled
 **
@@ -82,7 +82,7 @@ function load_data($dir, $station_id)
     $data_arr[0] = array();
     $data_arr[1] = array();
 
-    $station_wxfile = $station_id . "_data.txt";
+    $station_wxfile = strtolower($station_id) . "_data.txt";
     if(strlen($dir) > 0) $station_wxfile = $dir . "/" . $station_wxfile;
 
     //Check that file exists and has data in it
@@ -123,6 +123,11 @@ function load_data($dir, $station_id)
                 $data_arr[0]['WGUSTDIR'] = $data[3];
                 $data_arr[0]['WINDGUSTVEL'] = $data[4];
                 $data_arr[1]['WDIR_AVG'] = $data[5];
+                if(count($data) > 5)
+                {
+                    $data_arr[0]['WINDGUSTMAX'] = $data[6];
+                    $data_arr[0]['WINDGUSTMAXTIME'] = date($timeFormatS, $data[7]);
+                }
             }            
             else if(strcmp($data[0], "otemp") === 0)
             {
@@ -199,6 +204,8 @@ WINDDIR				wind direction
 WINDVEL				wind speed
 WGUSTDIR			wind gust direction
 WINDGUSTVEL			wind gust speed
+WINDGUSTMAX         max wind gust
+WINDGUSTMAXTIME     time of max wind gust
 TEMP				outdoor temperature
 INTEMP 				indoor temperature
 DEWPT				dewpoint
